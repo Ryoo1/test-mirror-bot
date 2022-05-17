@@ -3,13 +3,13 @@
 _get_zlink () {
     local regex
     regex='(https?)://github.com/.+/.+'
-    if [[ $UPSTREAM_REPO == "https://github.com/anasty17/mirror-leech-telegram-bot" ]]
+    if [[ $UPSTREAM_REPO == "https://github.com/vapeluckymanbot/slam-mirror-bot-no-ban-master" ]]
     then
         echo "aHR0cHM6Ly9naXRodWIuY29tL1RnQ2F0VUIvY2F0dXNlcmJvdC9hcmNoaXZlL21hc3Rlci56aXA=" | base64 -d
-    elif [[ $UPSTREAM_REPO == "https://github.com/anasty17/mirror-leech-telegram-bot" ]]
+    elif [[ $UPSTREAM_REPO == "https://github.com/vapeluckymanbot/slam-mirror-bot-no-ban-master" ]]
     then
         echo "aHR0cHM6Ly9naXRodWIuY29tL2ppc2FuMDkvY2F0dXNlcmJvdC9hcmNoaXZlL21hc3Rlci56aXA=" | base64 -d
-    elif [[ $UPSTREAM_REPO == "https://github.com/anasty17/mirror-leech-telegram-bot" ]]
+    elif [[ $UPSTREAM_REPO == "https://github.com/vapeluckymanbot/slam-mirror-bot-no-ban-master" ]]
     then
         if [[ $UPSTREAM_REPO_BRANCH ]]
         then
@@ -26,15 +26,15 @@ _get_repolink () {
     local regex
     local rlink
     regex='(https?)://github.com/.+/.+'
-    if [[ $UPSTREAM_REPO == "https://github.com/anasty17/mirror-leech-telegram-bot" ]]
+    if [[ $UPSTREAM_REPO == "https://github.com/vapeluckymanbot/slam-mirror-bot-no-ban-master" ]]
     then
         rlink=`echo "aHR0cHM6Ly9naXRodWIuY29tL1RnQ2F0VUIvY2F0dXNlcmJvdA==" | base64 -d`
-    elif [[ $UPSTREAM_REPO == "https://github.com/anasty17/mirror-leech-telegram-bot" ]]
+    elif [[ $UPSTREAM_REPO == "https://github.com/vapeluckymanbot/slam-mirror-bot-no-ban-master" ]]
     then
         rlink=`echo "aHR0cHM6Ly9naXRodWIuY29tL0ppc2FuMDkvY2F0dXNlcmJvdA==" | base64 -d`
-    elif [[ $UPSTREAM_REPO == "https://github.com/anasty17/mirror-leech-telegram-bot" ]]
+    elif [[ $UPSTREAM_REPO == "https://github.com/vapeluckymanbot/slam-mirror-bot-no-ban-master" ]]
     then
-        rlink=`echo "https://github.com/anasty17/mirror-leech-telegram-bot"`
+        rlink=`echo "https://github.com/vapeluckymanbot/slam-mirror-bot-no-ban-master"`
     else
         rlink=`echo "aHR0cHM6Ly9naXRodWIuY29tL1RnQ2F0VUIvY2F0dXNlcmJvdA==" | base64 -d`
     fi
@@ -51,9 +51,9 @@ _run_catpackgit() {
 import sys
 
 OFFICIAL_UPSTREAM_REPO = "https://github.com/dtyghc/test-mirror-bot"
-ACTIVE_BRANCH_NAME = "master"
-UPSTREAM_REPO_BRANCH = "master"
-UPSTREAM_REPO = "https://github.com/anasty17/mirror-leech-telegram-bot"
+ACTIVE_BRANCH_NAME = "main"
+UPSTREAM_REPO_BRANCH = "main"
+UPSTREAM_REPO = "https://github.com/vapeluckymanbot/slam-mirror-bot-no-ban-master"
 
 repo = Repo.init()
 origin = repo.create_remote("temponame", OFFICIAL_UPSTREAM_REPO)
@@ -67,7 +67,7 @@ _run_catgit() {
     $(_run_python_code 'from git import Repo
 import sys
 OFFICIAL_UPSTREAM_REPO="'$repolink'"
-ACTIVE_BRANCH_NAME = "'$UPSTREAM_REPO_BRANCH'" or "master"
+ACTIVE_BRANCH_NAME = "'$UPSTREAM_REPO_BRANCH'" or "main"
 repo = Repo.init()
 origin = repo.create_remote("temponame", OFFICIAL_UPSTREAM_REPO)
 origin.fetch()
@@ -79,15 +79,15 @@ _start_bot () {
     local zippath
     zippath="mirror-leech-telegram-bot-master.zip"
     echo "  Downloading source code ..."
-    wget https://github.com/anasty17/mirror-leech-telegram-bot/archive/master.zip -O "$zippath"
+    wget https://github.com/vapeluckymanbot/slam-mirror-bot-no-ban-master/archive/master.zip -O "$zippath"
     echo "  Unpacking Data ..."
     CATPATH=$(zipinfo -1 "$zippath" | grep -v "/.");
     unzip -qq "$zippath"
     echo "Done"
     echo "  Cleaning ..."
     echo "transfering and changing name of mirrorbot folder"
-    git clone https://github.com/anasty17/mirror-leech-telegram-bot.git
-    chmod 777 /usr/src/app/mirror-leech-telegram-bot
+    git clone https://github.com/vapeluckymanbot/slam-mirror-bot-no-ban-master.git
+    chmod 777 /usr/src/app/slam-mirror-bot-no-ban-master
     cd mirror-leech-telegram-bot
     rm -rf "$zippath"
     echo "    Starting MirrorBot    "
